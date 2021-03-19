@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Get Started
-description: Get started with fastmoe with docker or direct source.
+title: Tutorial
+description: Enjoy using FastMOE for your training.
 ---
 
 Get Started
