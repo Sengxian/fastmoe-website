@@ -1,5 +1,5 @@
 # name of the software
-name: FastMOE
+name: FastMoE
 theme: jekyll-docs-theme
 
 project:
@@ -35,7 +35,7 @@ links:
       url: https://github.com/laekov/fastmoe/issues?state=open
 
 ui:
-  mode: 'auto' # 'auto', 'dark', 'light'
+  mode: "auto" # 'auto', 'dark', 'light'
   brand:
     dark: "#DA70D6"
     light: "#9400D3"
@@ -55,8 +55,8 @@ ui:
       dark: "#fff"
       light: "#fff"
     align:
-      homepage: 'center'
-      page: 'left'
+      homepage: "center"
+      page: "left"
 
 social:
   github:
@@ -72,7 +72,7 @@ social:
     profileUrl:
 
 analytics:
-  google: UA-123456-1
+  google: G-5XP4H6L5PX
 
 # Build settings
 markdown: kramdown
