@@ -20,6 +20,14 @@
 
         <nav class="navbar-collapse collapse" role="navigation" id="navbarSupportedContent">
             <ul class="navbar-nav">
+                <li class="nav-item {% if page.title == 'homepage' %}active{% endif %}">
+                    <a
+                        class="nav-link"
+                        href="/"
+                    >
+                        Homepage
+                    </a>
+                </li>
                 {% assign sorted_pages = site.pages | sort: "title" %}
                 {% for p in sorted_pages %}
                     {% assign is_homepage = false %}

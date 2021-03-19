@@ -2,7 +2,7 @@
 layout: full
 homepage: true
 disable_anchors: true
-description: is not just MOE...
+description: A fast MoE implementation for PyTorch
 ---
 
 An easy-to-use and efficient system to support the Mixture of Experts (MoE) model for PyTorch.
@@ -36,7 +36,7 @@ Transformer is currently one of the most popular models to be extended by MoE. U
 
 For example, when using [Megatron-LM](https://github.com/nvidia/megatron-lm), using the following lines can help you easily scale up the MLP layers to multiple experts.
 
-```
+```python
 model = ...
 
 from fmoe.megatron import fmoefy
