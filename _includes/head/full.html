@@ -7,3 +7,7 @@
 {% include head/stylesheets-pre.html %}
 {% include head/stylesheets.html %}
 {% include head/stylesheets-post.html %}
+
+{% if site.analytics.google %}
+    {% include google-analytics.html %}
+{% endif %}
