@@ -1,11 +1,13 @@
 ---
 layout: page
 title: Get Started
-description: Get started with FastMoE with docker
+description: Get started with FastMoE
 ---
 
 Get Started
 ============
+
+You can get started with FastMoE with docker or in a direct way.
 
 ## Docker
 
@@ -59,3 +61,61 @@ fastmoe	0.1.1	pypi_0	pypi
 ```
 
 Finally, enjoy using FastMoE for training!
+
+## Direct way
+
+### Preparations
+
+To use FastMoe, CUDA and PyTorch are required.
+
+1. CUDA Tookit is available at <https://developer.nvidia.com/cuda-downloads>. Select your operating system and follow instructions on the website to install CUDA.
+   Notice: version of CUDA must match the version of nvidia driver. If you're not sure whether you have installed nvidia driver or you don't know its version, you may use `nvidia-smi` to get information about nvidia driver.
+
+2. Add CUDA to the list of environmental variables. If you work with Linux, use command `vi ~/.bashrc`  and add the following content to the end of file (replace X.X with version of CUDA you've downloaded):
+
+```
+export PATH=$PATH:/usr/local/cuda-X.X/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-X.X/lib64
+export CUDA_HOME=$CUDA_HOME:/usr/local/cuda-X.X
+```
+
+Then don't forget to use `source ~/.bashrc` to update the configurations.
+So far, CUDA has been installed successfully, you can use `nvcc --version` to check its version.
+
+3. PyTorch can be installed with pip. Version `>=1.8.0` is required if you want to use Megatron. After installation, run the following Python code:
+
+```
+import torch
+torch.cuda.is_available()
+torch.cuda.decive_count()
+```
+
+If result of `torch.cuda.is_available()` is `True` and `torch.cuda.decive_count()` returns number of your device, then conguatulations! CUDA and PyTorch run successfully on your device.
+
+### NCCL
+
+1. If you want to enable distributed expert feature, please download NCCL at <https://developer.nvidia.com/nccl/nccl-legacy-downloads>. Version of  NCCL should be no less than `2.7.5` and match the version of PyTorch. You can use function `torch.cuda.nccl.version()` to see the version of NCCL required.
+
+2. Install the 'deb' file. If you use Ubuntu or Debian, just use the following commands (nccl_repo_file is your file, XXX and X.X mean version of NCCL and CUDA):
+
+```
+sudo dpkg -i nccl_repo_file.deb
+sudo apt update
+sudo apt install libnccl2=XXX+cudaX.X libnccl-dev=XXX+cudaX.X
+```
+
+### FastMoe Installation
+
+1. Clone the repo of FastMoe from <https://github.com/laekov/fastmoe>, and use the following command to install:
+
+```
+python3 setup.py install
+```
+
+2. If you need NCCL, set environmental variable `USE_NCCL=1` before installation. For example, you may use command as follows:
+
+```
+export USE_NCCL=1
+```
+
+3. Installation finishes. Enjoy FastMoe now! You can try excuting `benchmark_mlp.py` in directory `tests`.
